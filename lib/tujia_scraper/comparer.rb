@@ -24,7 +24,7 @@ module TujiaScraper
       rm.keys.each do |rm_title|
         tj.each do |tj_title, page|
           if rm_title == tj_title
-            output << [rm[rm_title][1], rm_title, page]
+            output << [rm[rm_title][1], rm_title, page, city]
           end
         end
       end
@@ -36,7 +36,7 @@ module TujiaScraper
 
       rm.each do |rm_title, arr|
         if not_found.include?(rm_title)
-          output << [arr[1], rm_title, "Not found"]
+          output << [arr[1], rm_title, "Not Found", city]
         end
       end
     end

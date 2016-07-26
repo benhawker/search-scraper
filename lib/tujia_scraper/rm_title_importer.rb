@@ -13,7 +13,7 @@ module TujiaScraper
 
     # We will import properties.csv into the root periodically.
     def read_from_csv
-      CSV.foreach("properties.csv", headers: true, quote_char: "|") do |record|
+      CSV.foreach("test_properties.csv", headers: true, quote_char: "|") do |record|
         if record['city'] == city.to_s
           property_titles[record['title']] = [record['city'], record['room_id']]
         end

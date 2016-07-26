@@ -26,7 +26,7 @@ module TujiaScraper
 
     def valid_cities?(cities)
       cities.each do |city|
-        CITIES.keys.include?(city)
+        return false unless CITIES.keys.include?(city)
       end
     end
 

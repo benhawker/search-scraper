@@ -9,12 +9,10 @@ module TujiaScraper
       @output = output
     end
 
-    # TODO: Append if the daily CSV is already created.
-    # I.e. for the 2nd and further cities we process do not overwrite just append.
     def export
       CSV.open("results_#{Date.today}.csv", "a+",
       write_headers: true,
-      headers: ["room_id","page_number","title"]) do |csv|
+      headers: ["room_id","page_number","title", "city"]) do |csv|
         output.each do |result|
           csv << result
         end
