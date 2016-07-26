@@ -14,6 +14,8 @@ module TujiaScraper
       found
       not_found
 
+      output << ["Number of TJ Properties #{number_of_tj_properties}, Number of RM Properties #{number_of_rm_properties}"]
+
       export_results(output)
     end
 
@@ -51,13 +53,13 @@ module TujiaScraper
 
     # Total number of properties shown for given the give destination at Tujia.com
     def number_of_tj_properties
-      { city => tj.size }
+      tj.size
     end
 
     # Total number of properties contained in CSV dump for the given destination that meet
     # the scope (included in the feed) as defined by the Feed application.
     def number_of_rm_properties
-      { city => rm.size }
+      rm.size
     end
 
     def export_results(output)

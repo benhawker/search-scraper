@@ -13,6 +13,8 @@ module TujiaScraper
       CSV.open("results_#{Date.today}.csv", "a+",
       write_headers: true,
       headers: ["room_id","page_number","title", "city", Time.now]) do |csv|
+        csv << output.pop
+
         output.each do |result|
           csv << result
         end
