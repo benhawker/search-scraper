@@ -49,6 +49,17 @@ module TujiaScraper
       PropertyTitleSaver.new(city).get_property_titles
     end
 
+    # Total number of properties shown for given the give destination at Tujia.com
+    def number_of_tj_properties
+      { city => tj.size }
+    end
+
+    # Total number of properties contained in CSV dump for the given destination that meet
+    # the scope (included in the feed) as defined by the Feed application.
+    def number_of_rm_properties
+      { city => rm.size }
+    end
+
     def export_results(output)
       ResultExporter.new(output).export
     end

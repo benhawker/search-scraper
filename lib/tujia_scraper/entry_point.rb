@@ -11,7 +11,7 @@ module TujiaScraper
     attr_reader :cities
 
     def initialize(cities=nil)
-      @cities = cities || CITIES.keys
+      @cities = [cities] || CITIES.keys
     end
 
     def generate

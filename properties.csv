@@ -1,10 +1,101 @@
-city,title
-tokyo,title_1
-london,title_2
-london,title_3
-london,title_4
-london,海德公园行政公寓
-london,牛津街考文特花园完美伦敦公寓
-london,肯辛顿奥林匹亚时尚公寓
-london,韦斯特套房
-london,海德公园套房
+room_id,city,title
+16077,singapore,
+16075,singapore,
+101996,san francisco,Noe Valley 2间卧室公寓
+70554,tokyo,Akasaka 1间赏心卧室公寓
+208428,london,Chelsea and Kensington 1间浪漫卧室公寓
+69399,london,City of London 1间热情卧室公寓
+208363,london,Bloomsbury 1间温馨卧室公寓
+208362,london,Chelsea and Kensington 1间温馨卧室公寓
+346199,london,Marylebone 1间赏心卧室公寓
+34910,new york,Brighton Beach 2间瑰丽卧室公寓
+386228,singapore,Tiong Bahru间工作室公寓
+246866,tokyo,Roppongi 间工作室公寓
+134048,new york,Midtown West 1间瑰丽卧室公寓
+441089,london,London 1间便利卧室公寓
+173649,bangkok,Bangrak间工作室酒店
+166872,bangkok,Bangrak间工作室酒店
+55843,london,Tower Hamlets间工作室公寓
+52036,london,City of London 1间卧室公寓
+411237,pattaya,Pattaya 2间惊艳卧室公寓
+386231,singapore,Outram间工作室公寓
+441410,pattaya,Pattaya 4间惊艳卧室独栋房屋
+441411,pattaya,Pattaya 6间高级卧室独栋房屋
+368340,singapore,Tanglin 2间迷人卧室公寓
+37521,bangkok,Thon Buri 1间便利卧室公寓
+23138,san francisco,Cole Valley间工作室公寓
+205669,singapore,River Valley间工作室公寓
+62613,san francisco,"Downtown, San Francisco 2间卧室公寓"
+60902,san francisco,"Downtown, San Francisco 2间卧室公寓"
+73512,tokyo,Roppongi  1间安逸卧室公寓
+441774,tokyo,Shibuya 1间便利卧室公寓
+64193,san francisco,Mission District间工作室公寓
+6602,san francisco,Mission District间工作室公寓
+66538,singapore,
+75455,tokyo,Roppongi  1间旖旎卧室公寓
+241842,tokyo,Roppongi  1间便捷卧室公寓
+60849,san francisco,"Downtown, San Francisco间工作室公寓"
+65722,san francisco,"Downtown, San Francisco间工作室公寓"
+60655,san francisco,Nob Hill间工作室公寓
+446411,new york,Upper West Side 1间卧室公寓
+202953,tokyo,Charming in Central Location
+263326,singapore,Orchard 1间卧室公寓
+3488,new york,Brooklyn 1间宽阔卧室公寓
+389687,london,Chelsea and Kensington间工作室公寓
+409423,new york,New York 1间卧室公寓
+50205,london,Tower Hamlets 1间绮丽卧室公寓
+73633,bangkok,Thon Buri 2间瑰丽卧室公寓
+37072,bangkok,Thon Buri 2间宽阔卧室公寓
+452797,osaka,大阪 1间旖旎卧室公寓
+72419,san francisco,Noe Valley 2间卧室公寓
+257841,singapore,River Valley间工作室公寓
+208497,singapore,River Valley间工作室公寓
+76380,tokyo,Roppongi  1间玲珑卧室公寓
+23645,tokyo,Minato 2间宽阔卧室公寓
+53419,new york,East Harlem 1间卧室公寓
+441406,pattaya,Pattaya 2间惊艳卧室独栋房屋
+441407,pattaya,Pattaya 2间绝佳卧室独栋房屋
+13379,tokyo,Akasaka 1间舒适卧室公寓
+101199,new york,East Harlem 1间卧室公寓
+174812,bangkok,Bangrak间工作室公寓
+73116,new york,Bushwick 3间绝佳卧室公寓
+250849,london,Chelsea and Kensington间工作室公寓
+344363,new york,Prospect Lefferts Gardens 1间绝妙卧室公寓
+211657,new york,
+206754,singapore,River Valley间工作室公寓
+208418,london,Notting Hill 1间绚丽夺目卧室公寓
+429023,singapore,One Bed Room Apartment.独立套房2
+387198,tokyo,Nakano 2间赏心卧室公寓
+13937,taipei," 	3B2b - 3 Min to MRT, 10 Min to 10"
+48404,new york,Brighton Beach 2间无以比拟卧室公寓
+134834,bangkok,Bang Khlo 1间卧室公寓
+2104,san francisco,Haight-Ashbury 1间卧室公寓
+65879,new york,Lower East Side 1间卧室公寓
+364534,osaka,梅田 1间玲珑卧室公寓
+134532,tokyo,"Spectacular, in SOHO/Roppongi"
+263328,singapore,Tiong Bahru 1间卧室公寓
+134618,new york,East Harlem 2间卧室公寓
+241626,bangkok,Thon Buri 1间卧室公寓
+355115,new york,Luxury 1br in Prime Murray Hill
+429418,tokyo,Calm and residential area apartment
+409556,tokyo,"Toshima, Tokyo 2间热情卧室公寓"
+205498,san francisco,Pacific Heights间工作室公寓
+130360,tokyo,Shinjuku 1间惬意卧室公寓
+242298,tokyo,Shinjuku 1间卧室公寓
+242299,tokyo,Shinjuku 1间卧室公寓
+246765,tokyo,Shinjuku 1间宜人卧室公寓
+63287,san francisco,Mission District 1间卧室公寓
+2391,san francisco,Mission District 1间卧室公寓
+45249,san francisco,Cole Valley间工作室公寓
+193341,singapore,River Valley间工作室公寓
+170212,singapore,Orchard间工作室公寓
+170223,singapore,Orchard间工作室公寓
+441409,pattaya,Pattaya 2间惊艳卧室独栋房屋
+231218,tokyo,Shinjuku间工作室公寓
+452765,osaka,大阪 1间卧室公寓
+452767,osaka,大阪 1间卧室公寓
+452785,osaka,大阪 1间卧室公寓
+452786,osaka,大阪 1间卧室公寓
+452788,osaka,大阪 1间卧室公寓
+452789,osaka,大阪 1间卧室公寓
+452790,osaka,大阪 1间卧室公寓

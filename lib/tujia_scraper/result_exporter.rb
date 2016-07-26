@@ -12,7 +12,7 @@ module TujiaScraper
     def export
       CSV.open("results_#{Date.today}.csv", "a+",
       write_headers: true,
-      headers: ["room_id","page_number","title", "city"]) do |csv|
+      headers: ["room_id","page_number","title", "city", Time.now]) do |csv|
         output.each do |result|
           csv << result
         end
