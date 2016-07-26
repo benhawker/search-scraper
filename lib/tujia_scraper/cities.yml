@@ -1,0 +1,29 @@
+# Define valid cities & their identifier at Tujia.com.
+london: "lundun_gongyu_r17/"
+singapore: "xinjiapo_gongyu_r104/"
+
+#Japan
+tokyo: "dongjing_gongyu_r77/"
+osaka: "daban_gongyu_r147/"
+
+#Korea
+seoul: "shouer_gongyu_r129/"
+jeju: "jizhoudao_gongyu_r162/"
+
+#Thailand
+pattaya: "batiya_gongyu_r41/"
+bangkok: "mangu_gongyu_r40/"
+chiang_mai: "qingmai_gongyu_r128"
+phuket: "pujidao_gongyu_r28/"
+
+#Taiwan & HK
+taipei: "taibei_gongyu_r138"
+hualien: "hualian_gongyu_r133/"
+kaohsiung: "gaoxiong_gongyu_r134/"
+hong_kong: "xianggang_gongyu_r100/"
+
+#USA
+new_york: "niuyue_gongyu_r30/"
+san_francisco: "jiujinshan_gongyu_r23/"
+los_angeles: "luoshanji_gongyu_r20/"
+

@@ -2,16 +2,11 @@ module TujiaScraper
   class Client
 
     BASE_URL = "http://international.tujia.com/"
-
-    CITIES = {
-               london: "lundun_gongyu_r17/",
-               singapore: "xinjiapo_gongyu_r104/",
-               tokyo: "dongjing_gongyu_r77/",
-               osaka: "daban_gongyu_r147/"
-             }
+    CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'cities.yml')))
 
     attr_reader :city, :page, :start_date, :end_date, :guest_count
 
+    # Currently not using most of these optional arguments. Refactor usage into entry_point class.
     def initialize(city, page=1, start_date=nil, end_date=nil, guest_count=nil)
       @city = city
       @page = page
@@ -30,13 +25,14 @@ module TujiaScraper
       Mechanize.new
     end
 
-    # http://international.tujia.com/basailuona_gongyu_r24/1
+    # Example: http://international.tujia.com/basailuona_gongyu_r24/1
     def url_builder
-      url = BASE_URL + CITIES[city.to_sym] + page.to_s
+      url = BASE_URL + CITIES[city] + page.to_s
       url += params_builder if params?
       url
     end
 
+    # TODO: Allow flexibility to now have to pass all params.
     def params?
       start_date && end_date && guest_count
     end
