@@ -14,7 +14,12 @@ module TujiaScraper
       found
       not_found
 
-      output << ["Number of TJ Properties #{number_of_tj_properties}, Number of RM Properties #{number_of_rm_properties}"]
+      output << [
+        "For #{city}:
+  => Number of TJ Properties: #{number_of_tj_properties},
+  => Number of RM Properties #{number_of_rm_properties},
+  => Number of RM Properties Found: #{number_of_rm_properties_found}"
+      ]
 
       export_results(output)
     end
@@ -23,13 +28,16 @@ module TujiaScraper
 
     #List out properties that we share that we find for a given city.
     def found
+      found_count = 0
       rm.keys.each do |rm_title|
         tj.each do |tj_title, page|
           if rm_title == tj_title
+            found_count += 1
             output << [rm[rm_title][1], rm_title, page, city]
           end
         end
       end
+      found_count
     end
 
     #List out properties that we share that we do not find for a given city.
@@ -49,6 +57,10 @@ module TujiaScraper
 
     def tj_properties
       PropertyTitleSaver.new(city).get_property_titles
+    end
+
+    def number_of_rm_properties_found
+      found
     end
 
     # Total number of properties shown for given the give destination at Tujia.com

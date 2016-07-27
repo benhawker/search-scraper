@@ -1,7 +1,8 @@
 # The entry point for a user & the scheduler.
 # Optionally pass an array of cities (for a reduced list) or use the full list given in the cities.yml.
-# Usage: TujiaScraper::EntryPoint.new.generate
+# Usage: TujiaScraper::EntryPoint.new.generate - for all specified cities
 # Usage: TujiaScraper::EntryPoint.new(["london", "singapore"]).generate
+# Usage: TujiaScraper::EntryPoint.new(["london"]).generate
 
 module TujiaScraper
   class EntryPoint
@@ -11,7 +12,7 @@ module TujiaScraper
     attr_reader :cities
 
     def initialize(cities=nil)
-      @cities = [cities] || CITIES.keys
+      @cities = cities || CITIES.keys
     end
 
     def generate
