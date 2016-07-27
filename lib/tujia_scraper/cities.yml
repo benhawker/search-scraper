@@ -13,14 +13,11 @@
 #Thailand
 "pattaya": "batiya_gongyu_r41/"
 "bangkok": "mangu_gongyu_r40/"
-"chiang mai": "qingmai_gongyu_r128"
+"chiang mai": "qingmai_gongyu_r128/"
 "phuket": "pujidao_gongyu_r28/"
 
 #Taiwan & HK
 "taipei": "taibei_gongyu_r138/"
-#Deliberate mispelling of Hualien - as this is how it is in the RM db.
-"hualian": "hualian_gongyu_r133/"
-"kaohsiung": "gaoxiong_gongyu_r134/"
 "hong kong": "xianggang_gongyu_r100/"
 
 #USA
