@@ -10,7 +10,7 @@ module TujiaScraper
     end
 
     def export
-      CSV.open("results/#{output[0][-1]}_#{Date.today}.csv", "a+",
+      CSV.open(path_filename, "a+",
       write_headers: true,
       headers: ["room_id","page_number","title", "city", Time.now]) do |csv|
         csv << output.pop
@@ -19,6 +19,12 @@ module TujiaScraper
           csv << result
         end
       end
+    end
+
+    private
+
+    def path_filename
+      "results/#{output[0][-1]}_#{Date.today}.csv"
     end
 
   end

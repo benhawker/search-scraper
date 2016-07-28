@@ -11,9 +11,5 @@ RSpec.describe TujiaScraper::EntryPoint do
       cities = ["Moscow"]
       expect { described_class.new(cities).generate }.to raise_error(error_message)
     end
-
-    xit "returns xyz" do
-      expect(subject.generate).to eq "something"
-    end
   end
 end

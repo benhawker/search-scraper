@@ -19,9 +19,7 @@ module TujiaScraper
       raise InvalidCitySpecified.new(cities) unless valid_cities?(cities)
 
       cities.each do |city|
-        comparer = Comparer.new(city).compare
-        puts comparer #to be removed.
-        comparer
+        Comparer.new(city).compare
       end
     end
 
