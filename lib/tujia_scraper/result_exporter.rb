@@ -10,6 +10,8 @@ module TujiaScraper
     end
 
     def export
+      create_dir
+
       CSV.open(path_filename, "a+",
       write_headers: true,
       headers: ["room_id","page_number","title", "city", Time.now]) do |csv|
@@ -24,7 +26,11 @@ module TujiaScraper
     private
 
     def path_filename
-      "results/#{output[0][-1]}_#{Date.today}.csv"
+      "results/#{Date.today}/#{output[0][-1]}.csv"
+    end
+
+    def create_dir
+      FileUtils.mkdir_p "results/#{Date.today}/"
     end
 
   end
