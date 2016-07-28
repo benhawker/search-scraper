@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe TujiaScraper::ResultExporter do
+RSpec.describe TujiaScraper::SearchTitleComparer::ResultExporter do
   let(:output) { [["1", "title_1", 1, "london"], ["2", "title_2", 2, "london"]] }
   subject { described_class.new(output) }
 

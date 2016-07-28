@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe TujiaScraper::RMTitleImporter do
+RSpec.describe TujiaScraper::SearchTitleComparer::RMTitleImporter do
 
   let(:city) { "london" }
   subject { described_class.new(city) }

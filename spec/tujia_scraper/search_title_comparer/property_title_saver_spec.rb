@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe TujiaScraper::PropertyTitleSaver do
+RSpec.describe TujiaScraper::SearchTitleComparer::PropertyTitleSaver do
 
   let(:city) { "london" }
   subject { described_class.new(city) }

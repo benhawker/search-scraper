@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe TujiaScraper::Comparer do
+RSpec.describe TujiaScraper::SearchTitleComparer::Comparer do
   let(:city) { "london" }
   let(:tj) { {"title_1"=>1, "title_2"=>1, "title_3"=>1 } }
   let(:rm) { {"title_1"=>["london", "1"], "title_2"=>["london", "2"]} }

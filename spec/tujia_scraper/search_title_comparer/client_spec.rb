@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe TujiaScraper::Client do
+RSpec.describe TujiaScraper::SearchTitleComparer::Client do
 
   let(:city) { "london" }
   subject { described_class.new(city) }
