@@ -9,14 +9,16 @@ module TujiaScraper
 
       def initialize(city)
         @city = city
-        @property_titles = {}
+        @property_titles = []
       end
 
       # We will import properties.csv into the root periodically.
       def read_from_csv
         CSV.foreach(path, headers: true, quote_char: "|") do |record|
           if record['city'] == city.to_s
-            property_titles[record['title']] = [record['city'], record['room_id']]
+            hash = { :title => record['title'], :rm_id => record['room_id'], :city => record['city'] }
+
+            property_titles << hash
           end
         end
         property_titles

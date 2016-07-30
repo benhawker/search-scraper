@@ -16,7 +16,7 @@ module TujiaScraper
         raise InvalidCitySpecified.new(cities) unless valid_cities?(cities)
 
         cities.each do |city|
-          PropertyFinder.new(city).find
+          PropertyFinder.new(city).find_and_save
         end
       end
 

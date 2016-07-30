@@ -6,7 +6,7 @@ module TujiaScraper
 
       def initialize(city)
         @city = city
-        @property_titles = {} # Enables us to store { title: page_number, title: page_number }
+        @property_titles = []
       end
 
       def get_property_titles
@@ -17,13 +17,14 @@ module TujiaScraper
 
           links.each do |link|
             property_title = link.attributes["title"].value
-            property_titles[property_title] = page_number
+            property_titles << { :title => property_title, :page => page_number}
           end
 
           page_number += 1
         end
         property_titles
       end
+      #Return [{"title"=>"牛津街考文特花园完美伦敦公寓", "page"=>1}, {"title"=>"1号曼斯里大厦三室两卫公寓", "page"=>1}]
 
       private
 

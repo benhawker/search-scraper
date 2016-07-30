@@ -3,11 +3,13 @@ module TujiaScraper
     class Comparer
 
       attr_reader :city, :rm, :tj, :output
+      attr_accessor :number_of_rm_properties_found
 
       def initialize(city)
         @city = city
         @rm = rm_properties
         @tj = tj_properties
+        @number_of_rm_properties_found = 0
         @output = []
       end
 
@@ -15,39 +17,34 @@ module TujiaScraper
         found
         not_found
 
-        output << [
-          "For #{city}:
-    => Number of TJ Properties: #{number_of_tj_properties},
-    => Number of RM Properties #{number_of_rm_properties},
-    => Number of RM Properties Found: #{number_of_rm_properties_found}"
-        ]
-
+        export_summary
         export_results(output)
       end
 
       private
 
-      #List out properties that we share that we find for a given city.
       def found
         found_count = 0
-        rm.keys.each do |rm_title|
-          tj.each do |tj_title, page|
-            if rm_title == tj_title
+
+        rm.each do |rm_property|
+          tj.each do |tj_property|
+            #Do not add the second match - due to the nested iteration. TODO: Refactor!
+            if (rm_property[:title] == tj_property[:title]) && (!output.any? {|h| h[:title] == rm_property[:title]})
+              output << { :rm_id => rm_property[:rm_id], :title => rm_property[:title], :page => tj_property[:page], :city => city }
               found_count += 1
-              output << [rm[rm_title][1], rm_title, page, city]
             end
           end
         end
-        found_count
+        @number_of_rm_properties_found = found_count
       end
 
-      #List out properties that we share that we do not find for a given city.
       def not_found
-        not_found = rm.keys - tj.keys
+        titles = []
+        tj.each { |t| titles << t[:title] }
 
-        rm.each do |rm_title, arr|
-          if not_found.include?(rm_title)
-            output << [arr[1], rm_title, "Not Found", city]
+        rm.each do |rm_property|
+          unless titles.include?(rm_property[:title])
+            output << { :rm_id => rm_property[:rm_id], :title => rm_property[:title], :page => "Not Found", :city => city }
           end
         end
       end
@@ -60,8 +57,9 @@ module TujiaScraper
         PropertyTitleSaver.new(city).get_property_titles
       end
 
+      # Total number of properties included in the feed that we find in the search results.
       def number_of_rm_properties_found
-        found
+        @number_of_rm_properties_found
       end
 
       # Total number of properties shown for given the give destination at Tujia.com
@@ -76,8 +74,19 @@ module TujiaScraper
       end
 
       def export_results(output)
-        ResultExporter.new(output).export
+        ResultExporter.new(output, city).export
       end
+
+      #TODO - Refactor.
+      def export_summary
+        output << [
+          "For #{city}:
+    => Number of TJ Properties: #{number_of_tj_properties},
+    => Number of RM Properties sent in feed: #{number_of_rm_properties},
+    => Number of RM Properties Found: #{number_of_rm_properties_found}"
+        ]
+      end
+
     end
   end
 end

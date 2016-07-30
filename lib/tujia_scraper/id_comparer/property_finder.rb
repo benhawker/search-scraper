@@ -4,46 +4,36 @@ module TujiaScraper
   module IDComparer
     class PropertyFinder
 
-      attr_reader :city, :properties_to_find, :properties_found, :result
+      attr_reader :city, :properties_to_find, :properties_found
 
       def initialize(city)
         @city = city
         @properties_to_find = get_properties_list(city)
         @properties_found = []
-        # @result = []
       end
 
       def find_and_save
         find
-        write_to_csv
+        export_results(properties_found)
       end
 
       private
 
-      # {"391843"=>["5057784", "london"]}
-      def write_to_csv
-        CSV.open(path_filename, "a+",
-        write_headers: true,
-        headers: ["rm_id","tj_id","city"]) do |csv|
-          properties_found.each do |result|
-            csv << result
-          end
-        end
-      end
-
-
       def find
-        properties_to_find.each do |key, value|
+        properties_to_find.each do |property|
           begin
-            response = get_property(value[1], value[0])
+            #Call the client passing the city and the id to build the URL.
+            response = get_property(property[:city], property[:tj_id])
 
-            #Store the property titles to compare vs. our search title comparison results. TODO Refactor these chained gsub calls.
-            title = get_property(value[1], value[0]).css("body > div:nth-child(6) > div > h1").text.gsub(/\s+$/, '').gsub(/\n/, "")
-            properties_found << [title, value[1], value[0]]
+            #Store the property titles to compare vs. our search title comparison results.
+            # TODO Refactor these chained gsub calls.
+            # TODO Don't make a second request.
+            title = response.css("body > div:nth-child(6) > div > h1").text.gsub(/\s+$/, '').gsub(/\n/, "")
+            properties_found << { :title => title, :tj_id => property[:tj_id], :city => property[:city] }
 
           rescue Mechanize::ResponseCodeError
             #Display in the console any properties that we cannot find that are in the Tujia list provided.
-            puts "RM ID: #{key} with TJ ID: #{value[0]} in #{value[1]} not found"
+            puts "RM ID: #{property[:rm_id]} with TJ ID: #{property[:tj_id]} in #{property[:city]} not found"
           end
         end
       end
@@ -56,9 +46,8 @@ module TujiaScraper
         CSVReader.new(city).read_from_csv
       end
 
-      #Need to add city to this.
-      def path_filename
-        "results/id_comparer/#{Date.today}.csv"
+      def export_results(output)
+        ResultExporter.new(output, city).export
       end
 
     end

@@ -15,6 +15,7 @@ require_relative "tujia_scraper/id_comparer/client"
 require_relative "tujia_scraper/id_comparer/csv_reader"
 require_relative "tujia_scraper/id_comparer/property_finder"
 require_relative "tujia_scraper/id_comparer/entry_point"
+require_relative "tujia_scraper/id_comparer/result_exporter"
 
 # require_relative "tujia_scraper"
 
