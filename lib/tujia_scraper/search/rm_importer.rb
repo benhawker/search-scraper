@@ -2,8 +2,8 @@
 # CSV will contain room_id, city (string), property title (in simplified Chinese)
 
 module TujiaScraper
-  module SearchTitleComparer
-    class RMTitleImporter
+  module Search
+    class RMImporter
 
       attr_reader :city, :property_titles
 

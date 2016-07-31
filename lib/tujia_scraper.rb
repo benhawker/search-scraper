@@ -4,23 +4,23 @@ require "json"
 require "yaml"
 require "fileutils"
 
-require_relative "tujia_scraper/search_title_comparer/client"
-require_relative "tujia_scraper/search_title_comparer/property_title_saver"
-require_relative "tujia_scraper/search_title_comparer/rm_title_importer"
-require_relative "tujia_scraper/search_title_comparer/comparer"
-require_relative "tujia_scraper/search_title_comparer/result_exporter"
-require_relative "tujia_scraper/search_title_comparer/entry_point"
-require_relative "tujia_scraper/search_title_comparer/summarizer"
+require_relative "tujia_scraper/search/client"
+require_relative "tujia_scraper/search/tj_importer"
+require_relative "tujia_scraper/search/rm_importer"
+require_relative "tujia_scraper/search/comparer"
+require_relative "tujia_scraper/search/result_exporter"
+require_relative "tujia_scraper/search/summarizer"
+require_relative "tujia_scraper/search/entry_point"
 
-require_relative "tujia_scraper/id_comparer/client"
-require_relative "tujia_scraper/id_comparer/csv_reader"
-require_relative "tujia_scraper/id_comparer/property_finder"
-require_relative "tujia_scraper/id_comparer/entry_point"
-require_relative "tujia_scraper/id_comparer/result_exporter"
-require_relative "tujia_scraper/id_comparer/summarizer"
+require_relative "tujia_scraper/id/client"
+require_relative "tujia_scraper/id/csv_reader"
+require_relative "tujia_scraper/id/tj_importer"
+require_relative "tujia_scraper/id/result_exporter"
+require_relative "tujia_scraper/id/summarizer"
+require_relative "tujia_scraper/id/entry_point"
 
 module TujiaScraper
-  module SearchTitleComparer
+  module Search
     class InvalidCitySpecified < StandardError
       def initialize(cities)
         super("One of your requested cities: #{cities} is not valid. Valid cities are: #{Client::CITIES.keys}")
@@ -30,7 +30,7 @@ module TujiaScraper
 end
 
 module TujiaScraper
-  module IDComparer
+  module ID
     class InvalidCitySpecified < StandardError
       def initialize(cities)
         super("One of your requested cities: #{cities} is not valid. Valid cities are: #{Client::CITIES.keys}")

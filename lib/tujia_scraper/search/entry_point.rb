@@ -5,9 +5,9 @@
 # Usage: TujiaScraper::EntryPoint.new(["london"]).generate
 
 module TujiaScraper
-  module SearchTitleComparer
+  module Search
     class EntryPoint
-      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'search_title_comparer', 'cities.yml')))
+      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'search', 'cities.yml')))
 
       attr_reader :cities
 

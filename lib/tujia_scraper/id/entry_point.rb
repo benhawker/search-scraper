@@ -1,10 +1,10 @@
-# The entry point for a user & the scheduler for the IDComparer
+# The entry point for a user & the scheduler for the ID
 
 module TujiaScraper
-  module IDComparer
+  module ID
     class EntryPoint
 
-      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'id_comparer', 'cities.yml')))
+      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'id', 'cities.yml')))
 
       attr_reader :cities
 
@@ -16,7 +16,7 @@ module TujiaScraper
         raise InvalidCitySpecified.new(cities) unless valid_cities?(cities)
 
         cities.each do |city|
-          PropertyFinder.new(city).find_and_save
+          TJImporter.new(city).find_and_save
         end
       end
 

@@ -1,8 +1,8 @@
 ## Basic initial check to see if the property is actually valid and returning a page.
 
 module TujiaScraper
-  module IDComparer
-    class PropertyFinder
+  module ID
+    class TJImporter
 
       attr_reader :city, :properties_to_find, :properties_found
 
@@ -39,7 +39,7 @@ module TujiaScraper
       end
 
       def summarize
-        Summarizer.new(self).export
+        Summarizer.new(self, city).export
       end
 
       def get_property(city, id)

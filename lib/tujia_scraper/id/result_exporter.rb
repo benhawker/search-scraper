@@ -1,7 +1,7 @@
 # Output the result for a given city to a CSV.
 
 module TujiaScraper
-  module SearchTitleComparer
+  module ID
     class ResultExporter
 
       attr_reader :output, :city
@@ -14,7 +14,7 @@ module TujiaScraper
       def export
         create_dir
 
-        CSV.open(path_filename, "a+", headers: output.first.keys << Time.now) do |csv|
+        CSV.open(path_filename, "a+", headers: output.first.keys) do |csv|
           output.each do |result|
             csv << result.values
           end
@@ -28,11 +28,11 @@ module TujiaScraper
       end
 
       def path
-        "results/search_title_comparer/#{Date.today}/"
+        "results/id/#{Date.today}/"
       end
 
       def create_dir
-        FileUtils.mkdir_p "results/search_title_comparer/#{Date.today}/"
+        FileUtils.mkdir_p(path)
       end
 
     end

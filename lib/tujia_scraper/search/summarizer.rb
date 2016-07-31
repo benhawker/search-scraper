@@ -1,5 +1,5 @@
 module TujiaScraper
-  module SearchTitleComparer
+  module Search
     class Summarizer
 
       attr_reader :summary
@@ -23,7 +23,7 @@ module TujiaScraper
       end
 
       def path
-        "results/search_title_comparer/#{Date.today}/"
+        "results/search/#{Date.today}/"
       end
 
       def create_dir

@@ -1,5 +1,5 @@
 module TujiaScraper
-  module SearchTitleComparer
+  module Search
     class Comparer
 
       attr_reader :city, :rm, :tj, :output
@@ -9,7 +9,6 @@ module TujiaScraper
         @city = city
         @rm = rm_properties
         @tj = tj_properties
-        @number_of_rm_properties_found = 0
         @output = []
       end
 
@@ -50,16 +49,11 @@ module TujiaScraper
       end
 
       def rm_properties
-        RMTitleImporter.new(city).read_from_csv
+        RMImporter.new(city).read_from_csv
       end
 
       def tj_properties
-        PropertyTitleSaver.new(city).get_property_titles
-      end
-
-      # Total number of properties included in the feed that we find in the search results.
-      def number_of_rm_properties_found
-        @number_of_rm_properties_found
+        TJImporter.new(city).get_property_titles
       end
 
       # Total number of properties shown for given the give destination at Tujia.com
@@ -79,7 +73,7 @@ module TujiaScraper
 
       def export_summary
         summary = {
-                    :type => "SearchTitleComparer",
+                    :type => "Tujia Search Result Title Comparison",
                     :date => Date.today,
                     :city => city,
                     :number_of_tj_properties => number_of_tj_properties,

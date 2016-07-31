@@ -1,11 +1,12 @@
 module TujiaScraper
-  module IDComparer
+  module ID
     class Summarizer
 
-      attr_reader :property_finder_output
+      attr_reader :property_finder_output, :city
 
-      def initialize(property_finder_output)
+      def initialize(property_finder_output, city)
         @property_finder_output = property_finder_output
+        @city = city
       end
 
       def export
@@ -20,10 +21,11 @@ module TujiaScraper
 
       def summary
         {
+          :type => "TJ ID vs RM ID Comparison",
+          :date => Date.today,
           :city => city,
-          :number_of_properties_found => number_of_properties_found,
           :number_of_properties_in_tujia_list => number_of_properties_in_tujia_list,
-          :number_of_properties_in_feed => number_of_properties_in_feed
+          :number_of_properties_found => number_of_properties_found
         }
       end
 
@@ -35,11 +37,6 @@ module TujiaScraper
         property_finder_output.properties_to_find.size
       end
 
-      def number_of_properties_in_feed
-        #TODO Do not recalculate if already stored in memory.(i.e. whole process is running) =||
-        ::TujiaScraper::SearchTitleComparer::RMTitleImporter.new(city).read_from_csv.size
-      end
-
       def city
         property_finder_output.city
       end
@@ -49,7 +46,7 @@ module TujiaScraper
       end
 
       def path
-        "results/id_comparer/#{Date.today}/"
+        "results/id/#{Date.today}/"
       end
 
       def create_dir

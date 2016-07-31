@@ -1,6 +1,6 @@
 module TujiaScraper
-  module SearchTitleComparer
-    class PropertyTitleSaver
+  module Search
+    class TJImporter
 
       attr_reader :city, :property_titles
 

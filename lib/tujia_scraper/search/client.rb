@@ -1,9 +1,9 @@
 module TujiaScraper
-  module SearchTitleComparer
+  module Search
     class Client
 
       BASE_URL = "http://international.tujia.com/"
-      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'search_title_comparer', 'cities.yml')))
+      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'search', 'cities.yml')))
 
       attr_reader :city, :page
 

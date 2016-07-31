@@ -1,9 +1,9 @@
 module TujiaScraper
-  module IDComparer
+  module ID
     class Client
 
       BASE_URL = "http://international.tujia.com/"
-      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'id_comparer', 'cities.yml')))
+      CITIES = YAML::load(File.open(File.join('lib', 'tujia_scraper', 'id', 'cities.yml')))
 
       attr_reader :city, :id
 

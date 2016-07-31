@@ -1,5 +1,5 @@
 module TujiaScraper
-  module IDComparer
+  module ID
     class CSVReader
 
       attr_reader :city, :property_ids
@@ -9,7 +9,6 @@ module TujiaScraper
         @property_ids = []
       end
 
-      # tj_id,rm_id,city,rm_destination_id
       def read_from_csv
         CSV.foreach(path, headers: true, quote_char: "|") do |record|
           if record['city'] == city.to_s
