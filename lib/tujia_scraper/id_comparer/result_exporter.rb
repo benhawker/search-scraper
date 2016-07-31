@@ -14,10 +14,7 @@ module TujiaScraper
       def export
         create_dir
 
-        CSV.open(path_filename, "a+",
-        write_headers: true,
-        # TODO - Tie headers to the hash keys.
-        headers: ["title","tj_id","city"]) do |csv|
+        CSV.open(path_filename, "a+", headers: output.first.keys) do |csv|
           output.each do |result|
             csv << result.values
           end

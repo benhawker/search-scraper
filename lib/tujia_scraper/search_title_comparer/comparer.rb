@@ -28,7 +28,7 @@ module TujiaScraper
 
         rm.each do |rm_property|
           tj.each do |tj_property|
-            #Do not add the second match - due to the nested iteration. TODO: Refactor!
+            #Do not add the second match - due to the nested iteration. TODO: Sort out this mess.
             if (rm_property[:title] == tj_property[:title]) && (!output.any? {|h| h[:title] == rm_property[:title]})
               output << { :rm_id => rm_property[:rm_id], :title => rm_property[:title], :page => tj_property[:page], :city => city }
               found_count += 1
@@ -77,16 +77,18 @@ module TujiaScraper
         ResultExporter.new(output, city).export
       end
 
-      #TODO - Refactor.
       def export_summary
-        output << [
-          "For #{city}:
-    => Number of TJ Properties: #{number_of_tj_properties},
-    => Number of RM Properties sent in feed: #{number_of_rm_properties},
-    => Number of RM Properties Found: #{number_of_rm_properties_found}"
-        ]
-      end
+        summary = {
+                    :type => "SearchTitleComparer",
+                    :date => Date.today,
+                    :city => city,
+                    :number_of_tj_properties => number_of_tj_properties,
+                    :number_of_rm_properties => number_of_rm_properties,
+                    :number_of_rm_properties_found => number_of_rm_properties_found
+                  }
 
+        Summarizer.new(summary).export
+      end
     end
   end
 end
