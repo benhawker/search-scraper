@@ -27,7 +27,7 @@ module TujiaScraper
             response = get_property(property[:city], property[:tj_id])
 
             # Store the property titles to compare vs. our search title comparison results.
-            # TODO Refactor these chained gsub calls. Many flaws.
+            # TODO Refactor these chained gsub calls. Many flaws not being caught.
             title = response.css("body > div:nth-child(6) > div > h1").text.gsub(/\s+$/, '').gsub(/\n/, "")
             properties_found << { :title => title, :tj_id => property[:tj_id], :city => property[:city] }
 

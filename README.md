@@ -1,26 +1,24 @@
-Tujia.com search results scraper
+Tujia.com search scraper + added ID comparison.
 ===================
 
-A work in progress as of July 2016.
+A work in progress as of August 2016.
 
-### Requirements:
+For both components you will require an input file, which must be loaded into `properties/`. The directory is gitignored.
 
-xxx
+Results will be output to a `results/`. The directory is also gitignored but will be create dynically by fileutils once the script runs.
 
-===================
-
-### Install:
-
-```
-xxx
-```
 
 ===================
 
 ### Usage:
 
 ```
-xxx
+require_relative 'lib/tujia_scraper'
+
+TujiaScraper::ID::EntryPoint.new(["london", "tokyo"]).generate
+
+TujiaScraper::Search::EntryPoint.new(["london", "tokyo"]).generate
+
 ```
 
 ===================
