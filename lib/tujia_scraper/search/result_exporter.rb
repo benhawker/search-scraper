@@ -12,6 +12,7 @@ module TujiaScraper
       end
 
       def export
+        return if output.empty?
         create_dir
 
         CSV.open(path_filename, "a+", headers: output.first.keys << Time.now) do |csv|

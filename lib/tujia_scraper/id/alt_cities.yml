@@ -1,0 +1,27 @@
+# Define valid cities & their identifier for a property listing at tujia.com
+# This is an alternative URL that some propety id's are found under.
+"singapore": "xinjiapo_gongyu/xinjiapo"
+"london": "lundun_gongyu/lundun"
+
+#Japan
+"tokyo": "dongjing_gongyu/dongjing" # dongjing_gongyu/dongjing_114321.htm
+"osaka": "daban_gongyu/daban"
+
+#Korea
+"seoul": "shouer_gongyu/shouer"
+"jeju island": "jizhoudao_gongyu/jizhoudao" # http://www.tujia.com/jizhoudao_gongyu/jizhoudao_120479.htm
+
+#Thailand
+"pattaya": "batiya_gongyu/batiya" # http://www.tujia.com/batiya_gongyu/batiya_113006.htm
+"bangkok": "mangu_gongyu/mangu"   # http://www.tujia.com/mangu_gongyu/mangu_95649.htm
+"chiang mai": "qingmai_gongyu/qingmai"
+"phuket": "pujidao_gongyu_pujidao"
+
+#Taiwan & HK
+"taipei": "taibei_gongyu/taibei"
+"hong kong": "xianggang_gongyu/xianggang"
+
+#USA
+"new york": "niuyue_gongyu/niuyue"
+"san francisco": "jiujinshan_gongyu/jiujinshan"
+"los angeles": "luoshanji_gongyu/luoshanji"

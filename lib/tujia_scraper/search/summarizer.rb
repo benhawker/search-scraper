@@ -12,7 +12,10 @@ module TujiaScraper
         create_dir
 
         File.open(path_filename, 'a+') do |file|
-          summary.each { |key, value| file.write("#{key}: #{value}\n") }
+          summary.each do |key, value|
+            file.write("#{key}: #{value}\n")
+          end
+          file.write("\n")
         end
       end
 
@@ -23,7 +26,7 @@ module TujiaScraper
       end
 
       def path
-        "results/search/#{Date.today}/"
+        "results/"
       end
 
       def create_dir

@@ -19,6 +19,8 @@ require_relative "tujia_scraper/id/result_exporter"
 require_relative "tujia_scraper/id/summarizer"
 require_relative "tujia_scraper/id/entry_point"
 
+require_relative "tujia_scraper/report"
+
 module TujiaScraper
   module Search
     class InvalidCitySpecified < StandardError

@@ -22,18 +22,23 @@ module TujiaScraper
 
       def find
         properties_to_find.each do |property|
-          begin
-            # Call the client passing the city and the id to build the URL.
-            response = get_property(property[:city], property[:tj_id])
+          # Try both styles of URL for the given property.
+          [:get, :get_alt].each do |call|
+            begin
+              # Call the client trying both URL formats.
+              response = client(property[:city], property[:tj_id]).send("#{call}")
 
-            # Store the property titles to compare vs. our search title comparison results.
-            # TODO Refactor these chained gsub calls. Many flaws not being caught.
-            title = response.css("body > div:nth-child(6) > div > h1").text.gsub(/\s+$/, '').gsub(/\n/, "")
-            properties_found << { :title => title, :tj_id => property[:tj_id], :city => property[:city] }
+              # Store the property titles to compare vs. our search title comparison results.
+              # TODO: Refactor these chained gsub calls. Many flaws not being caught.
+              title = response.css("body > div:nth-child(6) > div > h1").text.gsub(/\s+$/, '').gsub(/\n/, "")
 
-          rescue Mechanize::ResponseCodeError
-            # Display in the console any properties that we cannot find that are in the Tujia list provided.
-            puts "RM ID: #{property[:rm_id]} with TJ ID: #{property[:tj_id]} in #{property[:city]} not found"
+              properties_found << { :title => title, :tj_id => property[:tj_id], :city => property[:city] }
+
+            rescue Mechanize::ResponseCodeError
+              # Display in the console any properties that we cannot find that are in the Tujia list provided.
+              # TODO: Return only one failure for each property in the console output.
+              puts "RM ID: #{property[:rm_id]} with TJ ID: #{property[:tj_id]} in #{property[:city]} not found"
+            end
           end
         end
       end
@@ -42,8 +47,8 @@ module TujiaScraper
         Summarizer.new(self, city).export
       end
 
-      def get_property(city, id)
-        Client.new(city, id).get
+      def client(city, id)
+        Client.new(city, id)
       end
 
       def get_properties_list(city)

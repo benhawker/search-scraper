@@ -1,30 +1,26 @@
-# Define valid cities & their identifier for a property listing at Tujia.com/international.tujia.com
-"london": "lundun" #Accurate
-"singapore": "xinjiapo/" #Accurate
-
-# Everything below here is inaccurate and needs checking.
-# Slightly different format for specific properties.
-# Need to look into international.tujia.com and tujia.com discrepancies and redirects.
+# Define valid cities & their identifier for a property listing at international.tujia.com
+"london": "lundun"
+"singapore": "xinjiapo"
 
 #Japan
-"tokyo": "dongjing/" #Different - dongjing_gongyu/dongjing_114321.htm
-"osaka": "daban/" #Seems ok - http://international.tujia.com/daban_u5064781.htm
+"tokyo": "dongjing" #http://international.tujia.com/dongjing_u5052805.htm
+"osaka": "daban"
 
 #Korea
-"seoul": "shouer/" #http://www.tujia.com/shouer_gongyu/shouer_86596.htm
-"jeju island": "jizhoudao2/" #http://www.tujia.com/jizhoudao_gongyu/jizhoudao_120479.htm
+"seoul": "shouer"
+"jeju island": "jizhoudao2"
 
 #Thailand
-"pattaya": "batiya/" #http://www.tujia.com/batiya_gongyu/batiya_113006.htm
-"bangkok": "mangu/"
-"chiang mai": "qingmai/"
-"phuket": "pujidao/"
+"pattaya": "batiya"
+"bangkok": "mangu"
+"chiang mai": "qingmai"
+"phuket": "pujidao"
 
 #Taiwan & HK
-"taipei": "taibei/"
-"hong kong": "xianggang/"
+"taipei": "taibei"
+"hong kong": "xianggang"
 
 #USA
-"new york": "niuyue/" #http://international.tujia.com/jiujinshan_u5035347.htm
-"san francisco": "jiujinshan/"
+"new york": "niuyue"
+"san francisco": "jiujinshan/" #http://international.tujia.com/jiujinshan_u5035347.htm
 "los angeles": "luoshanji/"
