@@ -67,6 +67,14 @@ module TujiaScraper
         rm.size
       end
 
+      def percentage_of_properties_found
+        ((number_of_rm_properties_found.to_f / number_of_rm_properties.to_f) * 100).round(2)
+      end
+
+      def percentage_of_roomorama_properties_out_of_total_on_tujia
+        ((number_of_rm_properties_found.to_f / number_of_tj_properties.to_f) * 100).round(2)
+      end
+
       def export_results(output)
         ResultExporter.new(output, city).export
       end
@@ -78,7 +86,9 @@ module TujiaScraper
                     :city => city,
                     :number_of_tj_properties => number_of_tj_properties,
                     :number_of_rm_properties => number_of_rm_properties,
-                    :number_of_rm_properties_found => number_of_rm_properties_found
+                    :number_of_rm_properties_found => number_of_rm_properties_found,
+                    :percentage_of_properties_found => percentage_of_properties_found,
+                    :percentage_of_roomorama_properties_out_of_total_on_tujia => percentage_of_roomorama_properties_out_of_total_on_tujia
                   }
 
         Summarizer.new(summary).export

@@ -28,8 +28,13 @@ module TujiaScraper
           :date => Date.today,
           :city => city,
           :number_of_properties_in_tujia_list => number_of_properties_in_tujia_list,
-          :number_of_properties_found => number_of_properties_found
+          :number_of_properties_found => number_of_properties_found,
+          :percentage_of_properties_found => percentage_of_properties_found
         }
+      end
+
+      def percentage_of_properties_found
+        ((number_of_properties_found / number_of_properties_in_tujia_list) * 100).to_i
       end
 
       def number_of_properties_found
