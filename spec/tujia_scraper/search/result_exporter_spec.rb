@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe TujiaScraper::Search::ResultExporter do
-  let(:output) { [["1", "title_1", 1, "london"], ["2", "title_2", 2, "london"]] }
+  let(:output) { [{ :rm_id => 123, :title => "my title", :page => 1, :city => "london" }, { :rm_id => 234, :title => "my title2", :page => 2, :city => "london" }] }
   let(:city) { "london" }
   subject { described_class.new(output, city) }
 
@@ -13,7 +13,7 @@ RSpec.describe TujiaScraper::Search::ResultExporter do
 
     it "creates a csv and writes the results to it" do
       file = File.read("spec/assets/results/my_test_csv.csv")
-      expect(file).to include ("2,title_2,2,london\n1,title_1,1,london")
+      expect(file).to include ("123,my title,1,london\n234,my title2,2,london")
     end
 
     after do
@@ -21,5 +21,3 @@ RSpec.describe TujiaScraper::Search::ResultExporter do
     end
   end
 end
-
-

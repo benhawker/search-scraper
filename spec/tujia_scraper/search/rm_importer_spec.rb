@@ -13,8 +13,8 @@ RSpec.describe TujiaScraper::Search::RMImporter do
       end
 
       it "returns a hash" do
-        property_titles_hash = {"title_1"=>["london", "1"], "title_2"=>["london", "2"]}
-        expect(subject.read_from_csv).to eq (property_titles_hash)
+        property_titles_array_of_hashes = [{:title=>"title_1", :rm_id=>"1", :city=>"london"}, {:title=>"title_2", :rm_id=>"2", :city=>"london"}]
+        expect(subject.read_from_csv).to eq (property_titles_array_of_hashes)
       end
     end
 
