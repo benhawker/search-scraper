@@ -15,7 +15,7 @@ module TujiaScraper
         return if output.empty?
         create_dir
 
-        CSV.open(path_filename, "a+", headers: output.first.keys << Time.now) do |csv|
+        CSV.open(path_filename, "w+", headers: true, headers: output.first.keys << Time.now) do |csv|
           output.each do |result|
             csv << result.values
           end

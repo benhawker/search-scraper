@@ -34,7 +34,10 @@ module TujiaScraper
       end
 
       def percentage_of_properties_found
-        ((number_of_properties_found / number_of_properties_in_tujia_list) * 100).to_i
+        begin
+          ((number_of_properties_found / number_of_properties_in_tujia_list) * 100).to_i
+      rescue ZeroDivisionError
+        end
       end
 
       def number_of_properties_found
@@ -50,11 +53,11 @@ module TujiaScraper
       end
 
       def path_filename
-        "#{path}summary.txt"
+        "#{path}summary_#{Date.today}.txt"
       end
 
       def path
-        "results/"
+        "results/summary/"
       end
 
       def create_dir

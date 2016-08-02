@@ -27,8 +27,12 @@ module TujiaScraper
 
         rm.each do |rm_property|
           tj.each do |tj_property|
+            #Strip whitespace to ensure we are comparing the same things - allows for formatting issues.
+            rm_title = rm_property[:title].strip unless rm_property[:title].nil?
+            tj_title = tj_property[:title].strip unless tj_property[:title].nil?
+
             #Do not add the second match - due to the nested iteration. TODO: Sort out this mess.
-            if (rm_property[:title] == tj_property[:title]) && (!output.any? {|h| h[:title] == rm_property[:title]})
+            if (rm_title == tj_title) && !output.any? {|h| h[:title] == rm_property[:title]}
               output << { :rm_id => rm_property[:rm_id], :title => rm_property[:title], :page => tj_property[:page], :city => city }
               found_count += 1
             end

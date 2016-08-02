@@ -22,11 +22,11 @@ module TujiaScraper
       private
 
       def path_filename
-        "#{path}summary.txt"
+        "#{path}summary_#{Date.today}.txt"
       end
 
       def path
-        "results/"
+        "results/summary/"
       end
 
       def create_dir

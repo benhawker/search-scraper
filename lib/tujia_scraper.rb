@@ -3,6 +3,7 @@ require "csv"
 require "json"
 require "yaml"
 require "fileutils"
+require "fuzzy_match"
 
 require_relative "tujia_scraper/search/client"
 require_relative "tujia_scraper/search/tj_importer"
